@@ -6,22 +6,29 @@ from bs4 import BeautifulSoup
 
 my_selenium = SeleniumHandler()
 # create a driver to get URLs and perform other actions
-driver = my_selenium.new_driver()
+my_selenium.new_driver()
+driver = my_selenium.driver
 # driver.maximize_window() Check if needed.
 
 # getting the url of the mobile search page in twitch.
 my_selenium.get("https://m.twitch.tv")
 
 search_button = driver.find_element(
-    By.XPATH, '*[@id="__next"]/div/nav/div[2]/a')
+    By.XPATH, '/html/body/div/div/nav/div[2]/a'
+)
 search_button.click()
-# typing pur search word.
-search_button.send_keys("starcraft II")
-search_button.send_keys(Keys.RETURN)
+
+search_bar = driver.find_element(
+    By.XPATH, '/html/body/div/div/nav/div/div/div[2]/div/div/input'
+)
+# typing our search word.
+search_bar.send_keys("starcraft II")
+search_bar.send_keys(Keys.RETURN)
+
 # finding the element of the first search result.
 search_result = driver.find_element(
-    By.XPATH, '*[@id="__next"]/div/main/div/div/ul/li[1]/a/div/p')
-# The element is a button so we can click it.
+    By.XPATH, '//*[@id="__next"]/div/main/div/div/ul/li[1]/a/div/p'
+)
 search_result.click()
 
 # allow time for dynamic elements to load

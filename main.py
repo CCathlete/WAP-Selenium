@@ -23,13 +23,14 @@ search_bar = driver.find_element(
 )
 # typing our search word.
 search_bar.send_keys("starcraft II")
-search_bar.send_keys(Keys.RETURN)
+time.sleep(5)
 
 # finding the element of the first search result.
 search_result = driver.find_element(
     By.XPATH, '//*[@id="__next"]/div/main/div/div/ul/li[1]/a/div/p'
 )
 search_result.click()
+# search_bar.send_keys(Keys.RETURN)
 
 # allow time for dynamic elements to load
 # this just waits a max of 10 seconds or until all scripts are done running

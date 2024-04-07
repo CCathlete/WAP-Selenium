@@ -9,16 +9,20 @@ my_selenium = SeleniumHandler()
 driver = my_selenium.new_driver()
 # driver.maximize_window() Check if needed.
 
-# get a URL
-my_selenium.get("https://www.twitch.tv")
+# getting the url of the mobile search page in twitch.
+my_selenium.get("https://m.twitch.tv")
 
-# find an element
-# link: https://selenium-python.readthedocs.io/locating-elements.html
-search_bar = driver.find_element(By.XPATH, "//input[@class='gLFyf']")
-search_bar.send_keys("This search was done by a Selenium Script")
-# also if it is a button you can do
-# element.click()
-search_bar.send_keys(Keys.RETURN)
+search_button = driver.find_element(
+    By.XPATH, '*[@id="__next"]/div/nav/div[2]/a')
+search_button.click()
+# typing pur search word.
+search_button.send_keys("starcraft II")
+search_button.send_keys(Keys.RETURN)
+# finding the element of the first search result.
+search_result = driver.find_element(
+    By.XPATH, '*[@id="__next"]/div/main/div/div/ul/li[1]/a/div/p')
+# The element is a button so we can click it.
+search_result.click()
 
 # allow time for dynamic elements to load
 # this just waits a max of 10 seconds or until all scripts are done running

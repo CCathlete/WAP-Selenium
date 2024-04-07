@@ -61,7 +61,7 @@ tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>
 
 [[package]]
 name = "beautifulsoup4"
-version = "4.11.1"
+version = "4.12.3"
 description = "Screen-scraping library"
 category = "main"
 optional = false
@@ -71,6 +71,9 @@ python-versions = ">=3.6.0"
 soupsieve = ">1.2"
 
 [package.extras]
+cchardet = ["cchardet"]
+chardet = ["chardet"]
+charset-normalizer = ["charset-normalizer"]
 html5lib = ["html5lib"]
 lxml = ["lxml"]
 
@@ -652,7 +655,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8.0,<3.9"
-content-hash = "361ff1a938818d74ab16842b42f2ca13446dfdfb6870645bdf227024ef6eac3d"
+content-hash = "0557e6e899662cc0955abd1a517870e0fb7d7ea21e45870dbdea4f1b700b4e85"
 
 [metadata.files]
 aiohttp = []

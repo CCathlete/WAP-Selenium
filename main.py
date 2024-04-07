@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 import time
 
 my_selenium = SeleniumHandler()
-# Create a driver to get URLs and perform other actions
+# Create a driver to get URLs and perform other actions.
 my_selenium.new_driver()
 driver = my_selenium.driver
 # Driver.maximize_window() Check if needed.
@@ -30,8 +30,19 @@ search_result = driver.find_element(
     By.XPATH, '//*[@id="__next"]/div/main/div/div/ul/li[1]/a/div/p'
 )
 search_result.click()
-# search_bar.send_keys(Keys.RETURN)
 
-# Waits 10 seconds or until all scripts are done running
-time.sleep(10)
+# Waits 10 seconds or until all scripts are done running.
+time.sleep(1)
 
+#Scroll down 2 times.
+driver.execute_script("window.scrollBy(0, 300)", "")
+time.sleep(3)
+driver.execute_script("window.scrollBy(0, 300)", "")
+time.sleep(1)
+
+third_streamer = driver.find_element(
+    By.XPATH, "/html/body/div/div/nav/div/div/div[2]/div/div/input"
+)
+third_streamer.click()
+time.sleep(5)
+driver.get_screenshot_as_file("Screenshot_with_selenium.png")

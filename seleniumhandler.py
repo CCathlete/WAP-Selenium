@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 
 class SeleniumHandler:
-    def new_driver(self):
+    def new_driver(self) -> None:
         # We'll use Google Chrome according to the demand.
         mobile_emulation = {"deviceName": "Galaxy Note 3"}
         # We'd like to set the mobile_emulaiton option in our webDriver.
@@ -16,18 +16,18 @@ class SeleniumHandler:
         driver.implicitly_wait(3)
         self.driver = driver
 
-    def scroll_to_bottom(self):
+    def scroll_to_bottom(self) -> None:
         self.driver.execute_script(
             'window.scrollBy(0,document.body.scrollHeight);')
 
-    def get_html_source(self, url: str):
+    def get_html_source(self, url: str) -> str:
         self.driver.get(url)
         time.sleep(3)
         return self.driver.page_source
 
-    def get(self, url: str):
+    def get(self, url: str) -> None:
         self.driver.get(url)
         time.sleep(3)
 
-    def close_chrome(driver):
+    def close_chrome(driver) -> None:
         driver.quit()

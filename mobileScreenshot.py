@@ -10,7 +10,8 @@ def main() -> None:
     # Driver.maximize_window() Check if needed.
     
     # Getting the url of the mobile search page in twitch.
-    my_selenium.get("https://m.twitch.tv")
+    url = "https://m.twitch.tv"
+    my_selenium.get(url)
     
     search_button = driver.find_element(
         By.XPATH, '/html/body/div/div/nav/div[2]/a'
@@ -45,7 +46,6 @@ def main() -> None:
     third_streamer.click()
     time.sleep(10)
     driver.get_screenshot_as_file("Screenshot_with_selenium.png")
-    print(type(my_selenium.get_html_source()))
     print("Screenshot taken.")
 
 

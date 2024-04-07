@@ -8,7 +8,8 @@ class SeleniumHandler:
         # We'd like to set the mobile_emulaiton option in our webDriver.
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_experimental_option(
-            "mobileEmulation", mobile_emulation)
+            "mobileEmulation", mobile_emulation
+            )
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         driver = webdriver.Chrome(options=chrome_options)
@@ -18,7 +19,8 @@ class SeleniumHandler:
 
     def scroll_to_bottom(self) -> None:
         self.driver.execute_script(
-            'window.scrollBy(0,document.body.scrollHeight);')
+            'window.scrollBy(0,document.body.scrollHeight);'
+            )
 
     def get_html_source(self, url: str) -> str:
         self.driver.get(url)

@@ -41,8 +41,11 @@ driver.execute_script("window.scrollBy(0, 300)", "")
 time.sleep(1)
 
 third_streamer = driver.find_element(
-    By.XPATH, "/html/body/div/div/nav/div/div/div[2]/div/div/input"
+    By.XPATH, 
+    "/html/body/div/div/main/div[2]/div/div/div[3]/" +
+    "div/article/a/div/div[1]/img"
 )
 third_streamer.click()
-time.sleep(5)
+time.sleep(10)
 driver.get_screenshot_as_file("Screenshot_with_selenium.png")
+print("Screenshot taken.")

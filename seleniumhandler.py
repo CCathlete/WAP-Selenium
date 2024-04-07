@@ -12,9 +12,8 @@ class SeleniumHandler:
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         driver = webdriver.Chrome(options=chrome_options)
-        # chrome_options.headless = True CHECK IF NEEDED.
         driver.maximize_window()
-        driver.implicitly_wait(10)
+        driver.implicitly_wait(3)
         self.driver = driver
 
     def scroll_to_bottom(self):
